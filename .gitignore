@@ -1,0 +1,15 @@
+# Runtime state and transfer artifacts — never source, never committed
+devices.json
+device-state.json
+manifest.json
+lab-response.json
+OMP-Remote-Lab/
+*.pub
+*.tmp
+
+# Common editor/OS noise
+.vs/
+.vscode/
+*.user
+Thumbs.db
+.DS_Store

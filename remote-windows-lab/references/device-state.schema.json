@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omp.local/schemas/remote-windows-lab-device-state-1.0.json",
+  "type": "object",
+  "required": ["schema_version", "registry_id", "controller", "devices", "updated_at_utc"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "registry_id": { "type": "string", "format": "uuid" },
+    "controller": { "$ref": "#/$defs/device" },
+    "devices": { "type": "array", "items": { "$ref": "#/$defs/device" } },
+    "updated_at_utc": { "type": "string", "format": "date-time" }
+  },
+  "$defs": {
+    "device": {
+      "type": "object",
+      "required": ["device_id", "hostname", "role", "state", "updated_at_utc", "checks"],
+      "properties": {
+        "device_id": { "type": "string", "format": "uuid" },
+        "hostname": { "type": "string", "minLength": 1 },
+        "role": { "enum": ["dev_pc", "lab_pc"] },
+        "state": { "enum": ["discovered", "transfer_prepared", "bootstrap_applied", "ssh_verified", "omp_pending", "ready", "retired", "error"] },
+        "updated_at_utc": { "type": "string", "format": "date-time" },
+        "addresses": { "type": "array", "items": { "type": "string" } },
+        "ssh_alias": { "type": ["string", "null"] },
+        "lab_user": { "type": ["string", "null"] },
+        "project_repository": { "type": ["string", "null"] },
+        "transfer_id": { "type": ["string", "null"], "format": "uuid" },
+        "checks": { "type": "object", "additionalProperties": { "type": "boolean" } },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}
