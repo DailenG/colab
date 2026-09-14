@@ -9,7 +9,7 @@ Install it once per machine, on whichever machine(s) will run the agent — typi
 1. Clone this repository somewhere durable, e.g.:
 
    ```powershell
-   git clone https://github.com/DailenG/Win-CoLab-Assistant.git C:\Syncs\Resilio\Code\Github\daileng\Win-CoLab-Assistant
+   git clone https://github.com/DailenG/colab.git C:\Syncs\Resilio\Code\Github\daileng\Win-CoLab-Assistant
    ```
 
 2. Add its skill directory (or a directory containing it) to `skills.customDirectories` in your OMP configuration file, typically `%USERPROFILE%\.omp\agent\config.yml`:
